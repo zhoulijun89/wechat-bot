@@ -18,7 +18,7 @@ jobs:
       run: docker save wechat-bot:latest -o wechat-bot.tar
 
     - name: Upload Docker image to release
-      uses: softprops/action-gh-release@v2
+      uses: ncipollo/release-action@v1
       with:
           name: "Latest Release"
           tag: "latest"
