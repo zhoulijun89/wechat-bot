@@ -12,10 +12,13 @@ jobs:
       uses: actions/checkout@v4
     
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag wechat-bot:latest
+      run: docker build . --file Dockerfile.alpine --tag wechat-bot:latest
 
     - name: Save Docker image as tar file
       run: docker save wechat-bot:latest -o wechat-bot.tar
+
+    - name: Compress Docker image tarball
+      run: tar -czvf wechat-bot.tar.gz wechat-bot.tar   
 
     - name: Upload Docker image to release
       uses: ncipollo/release-action@v1
@@ -26,6 +29,6 @@ jobs:
           commit: ${{ github.sha }}
           allowUpdates: true  # 允许多次更新 latest 的内容
           replacesArtifacts: true  # 替换旧文件
-          artifacts: "wechat-bot.tar"
+          artifacts: "wechat-bot.tar.gz"
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
