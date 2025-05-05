@@ -22,7 +22,7 @@ jobs:
       with:
           name: "Latest Release"
           tag: "latest"
-          tag-name: "latest"
+          tag_name: "latest"
           commit: ${{ github.sha }}
           allowUpdates: true  # 允许多次更新 latest 的内容
           replacesArtifacts: true  # 替换旧文件
