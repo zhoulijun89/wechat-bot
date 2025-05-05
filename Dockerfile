@@ -1,9 +1,9 @@
 ARG APT_SOURCE="default"
 
-FROM node:19 as builder-default
+FROM node:22 as builder-default
 ENV NPM_REGISTRY="https://registry.npmjs.org"
 
-FROM node:19 as builder-aliyun
+FROM node:22 as builder-aliyun
 
 ENV NPM_REGISTRY="https://registry.npmmirror.com"
 RUN sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list \
