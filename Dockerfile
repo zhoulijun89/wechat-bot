@@ -32,7 +32,7 @@ RUN apt-get update \
     libtool \
     libxtst6 \
     moreutils \
-    python-dev \
+    python3-dev \
     shellcheck \
     sudo \
     tzdata \
